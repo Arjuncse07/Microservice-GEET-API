@@ -1,0 +1,28 @@
+server:
+  port: 9090
+
+spring:
+  application:
+    name: GEET-API
+  thymeleaf:
+    enabled: true
+    prefix: classpath:/templates/tickets/
+    suffix: .html
+  boot:
+    admin:
+      client:
+        url: http://localhost:8080/
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+
+

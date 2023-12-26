@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket List</title>
+</head>
+<body>
+<h1>Ticket List</h1>
+
+<div th:each="ticketGroup : ${listOfTicket}">
+    <h2>Group</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Time</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="ticket : ${ticketGroup}">
+            <td th:text="${ticket.ticketId}"></td>
+            <td th:text="${ticket.ticketPrintTiming}"></td>
+            <td th:text="${ticket.ticketPrintLocation}"></td>
+            <td th:text="${ticket.ticketJourneyDetails}"></td>
+            <td th:text="${ticket.ticketGenerateDate}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

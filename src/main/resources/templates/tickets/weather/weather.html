@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Weather Information</title>
+</head>
+<body>
+<h1>Weather Information</h1>
+<p>City: <span th:text="${weatherData.name}"></span></p>
+<p>Temperature: <span th:text="${weatherData.main.temp}"></span></p>
+<!-- Add more content based on your WeatherData structure -->
+</body>
+</html>
