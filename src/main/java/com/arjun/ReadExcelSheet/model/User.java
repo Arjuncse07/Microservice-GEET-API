@@ -7,15 +7,15 @@ public class User {
     private int id;
     private String firstName;
     private String lastName;
-    private Integer age;
+    private String age;
     private String email;
     private String phoneNumber;
-    private Double salary;
+    private String salary;
     private String country;
     private String state;
     private String street;
 
-    public User(int id, String firstName, String lastName, Integer age, String email, String phoneNumber, Double salary, String country, String state, String street) {
+    public User(int id, String firstName, String lastName, String age, String email, String phoneNumber, String salary, String country, String state, String street) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -50,11 +50,11 @@ public class User {
         this.lastName = lastName;
     }
 
-    public Integer getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge(Integer age) {
+    public void setAge(String age) {
         this.age = age;
     }
 
@@ -74,11 +74,11 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
-    public Double getSalary() {
+    public String getSalary() {
         return salary;
     }
 
-    public void setSalary(Double salary) {
+    public void setSalary(String salary) {
         this.salary = salary;
     }
 
