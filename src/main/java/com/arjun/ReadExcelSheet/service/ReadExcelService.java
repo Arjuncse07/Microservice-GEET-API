@@ -8,10 +8,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.StreamCorruptedException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
@@ -43,12 +40,23 @@ public class ReadExcelService {
     }
 
 
-    private Double parseDoubleValue(String value )throws NumberFormatException{
+   /* private Double parseDoubleValue(String value )throws NumberFormatException{
         if (value ==null || value.isEmpty() ){
             throw new NumberFormatException("Value is null or empty");
         }
         return Double.parseDouble(value);
     }
+
+    */
+
+    private Double parseDoubleValue(String value) throws NumberFormatException {
+        return Optional.ofNullable(value)
+                .filter(inputValue -> !inputValue.isEmpty())
+                .map(Double::parseDouble)
+                .orElseThrow(() -> new NumberFormatException("Value is null or empty"));
+    }
+
+
 
 private boolean isRowNonBlank(Row row){
         // check if any cell in the row is not blank
@@ -264,7 +272,6 @@ private boolean isRowNonBlank(Row row){
     public static void main(String[] args) {
       ReadExcelService readExcelService = new ReadExcelService();
       List<User> userList = readExcelService.readExcelToList("C:\\Users\\aj629\\IdeaProjects\\GEET_API\\src\\main\\resources\\static\\users.xlsx");
-
       userList.forEach(
               e -> System.out.println(e.getId() +"  :  " +e.getFirstName())
       );
